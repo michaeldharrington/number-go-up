@@ -1,10 +1,7 @@
-# Global Click
-
-**One number. Everyone. Up only.**
+# Number go up
 
 A macOS menu bar app showing a single global counter shared by everyone
-running it. Each person can click once an hour. The goal: push it as high
-as we collectively can.
+running it. Make go up. 
 
 The count lives in your menu bar (`8.4M`-style). The dropdown has the full
 total, the Click button, your lifetime contribution, a countdown to your
