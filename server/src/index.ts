@@ -21,22 +21,6 @@ const CORS_HEADERS: Record<string, string> = {
   "Access-Control-Max-Age": "86400",
 };
 
-/** Menu-bar-style abbreviation for the badge: 8_400_000 → "8.4M". */
-function abbreviated(n: number): string {
-  const tiers: [number, string][] = [
-    [1e9, "B"],
-    [1e6, "M"],
-    [1e3, "K"],
-  ];
-  for (const [div, suffix] of tiers) {
-    if (n >= div) {
-      const v = Math.floor((n / div) * 10) / 10;
-      return (v % 1 === 0 ? String(Math.trunc(v)) : v.toFixed(1)) + suffix;
-    }
-  }
-  return String(n);
-}
-
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -83,7 +67,7 @@ export default {
         {
           schemaVersion: 1,
           label: "global clicks",
-          message: abbreviated(total),
+          message: total.toLocaleString("en-US"), // full number: "8,400,123"
           color: "brightgreen",
         },
         200,

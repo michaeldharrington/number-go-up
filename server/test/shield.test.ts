@@ -18,13 +18,13 @@ describe("GET /shield", () => {
     expect(typeof body.message).toBe("string");
   });
 
-  it("abbreviates large totals", async () => {
+  it("shows the full current number with separators", async () => {
     // Seed the global DO directly, then read through the endpoint.
     const stub = env.COUNTER.get(env.COUNTER.idFromName("global"));
     for (let i = 0; i < 1500; i++) await stub.increment();
 
     const res = await SELF.fetch("https://example.com/shield");
     const body = await res.json<{ message: string }>();
-    expect(body.message).toBe("1.5K");
+    expect(body.message).toBe("1,500");
   });
 });

@@ -1,6 +1,6 @@
 # Number go up
 
-[![Global clicks](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.YOUR-SUBDOMAIN.workers.dev%2Fshield&style=for-the-badge)](../../releases)
+![Global clicks](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.YOUR-SUBDOMAIN.workers.dev%2Fshield&style=for-the-badge)
 
 <!-- After `wrangler deploy`, replace YOUR-SUBDOMAIN above with your
      workers.dev subdomain (URL-encoded) so the badge shows the live count. -->
