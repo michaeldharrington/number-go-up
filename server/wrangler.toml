@@ -7,7 +7,7 @@ compatibility_date = "2024-12-01"
 # then paste the returned id below.
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "9c9a6dbad7ae452ab58149f18c99e760"
 
 # --- Durable Object: the single global counter ---
 [[durable_objects.bindings]]
