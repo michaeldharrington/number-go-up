@@ -1,5 +1,10 @@
 # Number go up
 
+[![Global clicks](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.YOUR-SUBDOMAIN.workers.dev%2Fshield&style=for-the-badge)](../../releases)
+
+<!-- After `wrangler deploy`, replace YOUR-SUBDOMAIN above with your
+     workers.dev subdomain (URL-encoded) so the badge shows the live count. -->
+
 A macOS menu bar app showing a single global counter shared by everyone
 running it. Make go up. 
 
@@ -45,6 +50,7 @@ All endpoints except `/history` require `X-Client-Id: <uuid>`.
 | `GET /count` | `{ total, yourClicks, nextClickAt }` — `nextClickAt` is null when you can click now |
 | `POST /click` | Same shape; `429 { error, nextClickAt }` when rate-limited |
 | `GET /history` | `{ history: [{ ts, total }] }` — last 24 hourly snapshots |
+| `GET /shield` | [shields.io endpoint-badge](https://shields.io/badges/endpoint-badge) JSON — powers the badge above, no header needed |
 
 ## Development
 
