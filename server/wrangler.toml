@@ -1,0 +1,20 @@
+name = "global-click-counter"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+# --- KV: rate limiting + per-user click counts ---
+# Create with: wrangler kv namespace create RATE_LIMIT
+# then paste the returned id below.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# --- Durable Object: the single global counter ---
+[[durable_objects.bindings]]
+name = "COUNTER"
+class_name = "GlobalCounter"
+
+# SQLite-backed DO storage (works on the free plan; classic storage does not).
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GlobalCounter"]
