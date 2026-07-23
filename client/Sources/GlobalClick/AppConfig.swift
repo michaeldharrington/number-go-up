@@ -3,7 +3,7 @@ import Foundation
 enum AppConfig {
     /// The one place to swap servers.
     /// Local dev: http://localhost:8787   (npx wrangler dev in /server)
-    static let baseURL = URL(string: "https://global-click-counter.zoomdevforum.workers.dev")!
+    static let baseURL = URL(string: "https://global-click-counter.mdharr.workers.dev")!
 
     /// Poll cadence, seconds.
     static let pollClosed: Duration = .seconds(60)

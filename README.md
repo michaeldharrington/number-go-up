@@ -1,6 +1,6 @@
 # Number go up
 
-![Global clicks](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.zoomdevforum.workers.dev%2Fshield&style=for-the-badge)
+![Global clicks](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.mdharr.workers.dev%2Fshield&style=for-the-badge)
 
 A macOS menu bar app showing a single global counter shared by everyone
 running it. Make go up. 
