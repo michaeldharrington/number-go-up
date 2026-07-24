@@ -66,7 +66,7 @@ export default {
       return json(
         {
           schemaVersion: 1,
-          label: "global clicks",
+          label: "click count",
           message: total.toLocaleString("en-US"), // full number: "8,400,123"
           color: "brightgreen",
         },

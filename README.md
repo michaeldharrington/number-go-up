@@ -1,13 +1,13 @@
 # Number go up
 
-![Global clicks](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.mdharr.workers.dev%2Fshield&style=for-the-badge)
+![Click count](https://img.shields.io/endpoint?url=https%3A%2F%2Fglobal-click-counter.mdharr.workers.dev%2Fshield&style=for-the-badge)
 
-A macOS menu bar app showing a single global counter shared by everyone
-running it. Make go up. 
+A macOS menu bar app with one counter, shared by everyone running it. You
+click. Number go up. That's the app.
 
-The count lives in your menu bar (`8.4M`-style). The dropdown has the full
-total, the Click button, your lifetime contribution, a countdown to your
-next click, and a 24-hour sparkline.
+The count lives in your menu bar (`8.4M`-style). Open the dropdown for the
+full total, the Click button, your lifetime contribution, a countdown to
+your next click, and a 24-hour sparkline.
 
 ## Install
 
@@ -15,8 +15,8 @@ next click, and a 24-hour sparkline.
 2. Unzip, drag **GlobalClick.app** to Applications, launch
 3. Click
 
-No accounts. The app generates an anonymous UUID in your Keychain — that's
-the only identity that exists.
+No accounts, no login. The app stashes an anonymous UUID in your Keychain,
+and that's the only thing that knows who you are.
 
 Requires macOS 14+.
 
@@ -27,16 +27,16 @@ Requires macOS 14+.
 /server   Cloudflare Worker + Durable Object + KV
 ```
 
-- A single **Durable Object** (`idFromName("global")`) holds the one true
-  total — exactly one instance worldwide, so increments are strictly
-  serialized without locks. An hourly alarm snapshots the total into a
-  rolling 24-point history for the sparkline.
-- **KV** handles all per-user state: rate limiting (1 click/hour per
-  client, 5/hour per IP — IPs stored only as SHA-256 hashes) and lifetime
-  click counts. The Durable Object never sees who clicked.
+- A single Durable Object (`idFromName("global")`) holds the one true
+  total. There's exactly one instance worldwide, so increments serialize
+  without locks. An hourly alarm snapshots the total into a rolling
+  24-point history for the sparkline.
+- KV handles per-user state: rate limiting (1 click/hour per client, 5/hour
+  per IP, and IPs are stored only as SHA-256 hashes) plus lifetime click
+  counts. The Durable Object never sees who clicked.
 - The client polls every 60s (10s while the menu is open), pauses during
-  sleep, updates optimistically on click, and reconciles with the server —
-  snapping back with a countdown on a 429.
+  sleep, and updates optimistically on click. If the server says 429, it
+  snaps back and shows a countdown.
 
 ### API
 

@@ -14,7 +14,7 @@ describe("GET /shield", () => {
     expect(res.status).toBe(200);
     const body = await res.json<Record<string, unknown>>();
     expect(body.schemaVersion).toBe(1);
-    expect(body.label).toBe("global clicks");
+    expect(body.label).toBe("click count");
     expect(typeof body.message).toBe("string");
   });
 
